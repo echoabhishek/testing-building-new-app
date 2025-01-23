@@ -9,3 +9,57 @@
 8 verbose argv "link"
 9 verbose logfile logs-max:10 dir:/home/user/.npm/_logs/2025-01-23T23_08_35_513Z-
 10 verbose logfile /home/user/.npm/_logs/2025-01-23T23_08_35_513Z-debug-0.log
+11 silly packumentCache heap:2114453504 maxSize:528613376 maxEntrySize:264306688
+12 silly logfile done cleaning log files
+13 silly idealTree buildDeps
+14 silly placeDep ROOT line-counter-cli@1.0.0 OK for:  want: file:../../home/user/line-counter-cli
+15 silly reify moves {}
+16 silly audit bulk request { 'line-counter-cli': [ '1.0.0' ] }
+17 verbose stack Error: EACCES: permission denied, symlink '../../../home/user/line-counter-cli' -> '/usr/lib/node_modules/line-counter-cli'
+17 verbose stack     at async symlink (node:internal/fs/promises:1000:10)
+17 verbose stack     at async /usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:715:7
+17 verbose stack     at async Promise.allSettled (index 0)
+17 verbose stack     at async [reifyPackages] (/usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:325:11)
+17 verbose stack     at async Arborist.reify (/usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:142:5)
+17 verbose stack     at async Link.linkPkg (/usr/lib/node_modules/npm/lib/commands/link.js:147:5)
+17 verbose stack     at async Npm.exec (/usr/lib/node_modules/npm/lib/npm.js:207:9)
+17 verbose stack     at async module.exports (/usr/lib/node_modules/npm/lib/cli/entry.js:74:5)
+18 error code EACCES
+19 error syscall symlink
+20 error path ../../../home/user/line-counter-cli
+21 error dest /usr/lib/node_modules/line-counter-cli
+22 error errno -13
+23 error Error: EACCES: permission denied, symlink '../../../home/user/line-counter-cli' -> '/usr/lib/node_modules/line-counter-cli'
+23 error     at async symlink (node:internal/fs/promises:1000:10)
+23 error     at async /usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:715:7
+23 error     at async Promise.allSettled (index 0)
+23 error     at async [reifyPackages] (/usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:325:11)
+23 error     at async Arborist.reify (/usr/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:142:5)
+23 error     at async Link.linkPkg (/usr/lib/node_modules/npm/lib/commands/link.js:147:5)
+23 error     at async Npm.exec (/usr/lib/node_modules/npm/lib/npm.js:207:9)
+23 error     at async module.exports (/usr/lib/node_modules/npm/lib/cli/entry.js:74:5) {
+23 error   errno: -13,
+23 error   code: 'EACCES',
+23 error   syscall: 'symlink',
+23 error   path: '../../../home/user/line-counter-cli',
+23 error   dest: '/usr/lib/node_modules/line-counter-cli'
+23 error }
+24 error
+24 error The operation was rejected by your operating system.
+24 error It is likely you do not have the permissions to access this file as the current user
+24 error
+24 error If you believe this might be a permissions issue, please double-check the
+24 error permissions of the file and its containing directories, or try running
+24 error the command again as root/Administrator.
+25 silly unfinished npm timer reify 1737673715847
+26 silly unfinished npm timer reify:audit 1737673715885
+27 silly unfinished npm timer auditReport:getReport 1737673715885
+28 silly unfinished npm timer reify:unpack 1737673715892
+29 silly unfinished npm timer reifyNode:node_modules/line-counter-cli 1737673715892
+30 verbose cwd /home/user/line-counter-cli
+31 verbose os Linux 5.10.186+
+32 verbose node v20.18.0
+33 verbose npm  v10.8.2
+34 verbose exit -13
+35 verbose code -13
+36 error A complete log of this run can be found in: /home/user/.npm/_logs/2025-01-23T23_08_35_513Z-debug-0.log

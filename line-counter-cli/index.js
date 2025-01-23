@@ -9,7 +9,7 @@ function countLines(filePath) {
     const lines = content.split('\n');
     return lines.length;
   } catch (error) {
-    console.error();
+    console.error(`Error reading file: ${error.message}`);
     process.exit(1);
   }
 }
@@ -24,4 +24,4 @@ if (!filePath) {
 const absolutePath = path.resolve(filePath);
 const lineCount = countLines(absolutePath);
 
-console.log();
+console.log(`Number of lines in ${filePath}: ${lineCount}`);

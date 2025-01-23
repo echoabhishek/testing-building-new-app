@@ -10,3 +10,19 @@
 9 verbose logfile logs-max:10 dir:/home/user/.npm/_logs/2025-01-23T23_06_24_165Z-
 10 verbose logfile /home/user/.npm/_logs/2025-01-23T23_06_24_165Z-debug-0.log
 11 silly logfile done cleaning log files
+12 silly package data {
+12 silly package data   name: 'line-counter-cli',
+12 silly package data   version: '1.0.0',
+12 silly package data   main: 'index.js',
+12 silly package data   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+12 silly package data   keywords: [],
+12 silly package data   author: '',
+12 silly package data   license: 'ISC',
+12 silly package data   description: ''
+12 silly package data }
+13 verbose cwd /home/user/line-counter-cli
+14 verbose os Linux 5.10.186+
+15 verbose node v20.18.0
+16 verbose npm  v10.8.2
+17 verbose exit 0
+18 info ok

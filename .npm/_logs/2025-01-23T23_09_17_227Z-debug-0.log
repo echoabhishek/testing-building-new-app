@@ -9,3 +9,10 @@
 8 verbose argv "start" "sample.txt"
 9 verbose logfile logs-max:10 dir:/home/user/.npm/_logs/2025-01-23T23_09_17_227Z-
 10 verbose logfile /home/user/.npm/_logs/2025-01-23T23_09_17_227Z-debug-0.log
+11 silly logfile done cleaning log files
+12 verbose cwd /home/user/line-counter-cli
+13 verbose os Linux 5.10.186+
+14 verbose node v20.18.0
+15 verbose npm  v10.8.2
+16 verbose exit 0
+17 info ok

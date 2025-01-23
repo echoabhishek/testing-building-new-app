@@ -1,12 +1,15 @@
 {
   "name": "line-counter-cli",
   "version": "1.0.0",
+  "description": "A CLI tool to count lines in a file",
   "main": "index.js",
+  "bin": {
+    "line-counter": "./index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["cli", "line-counter"],
   "author": "",
-  "license": "ISC",
-  "description": ""
+  "license": "ISC"
 }

@@ -9,8 +9,8 @@ This document serves as a placeholder for testing purposes.
 
 ## Section 2: Numbered List
 
-1. This is a new line 1
-2. The sum of 2 + 3 = 5
+1. this is a new line 1
+2. this is the sum of 2+3 =???
 
 ## Section 3: Code Example
 
@@ -23,3 +23,5 @@ print(f"The sum of 2 + 3 = {result}")
 ```
 
 Note: This document is for demonstration purposes only.
+
+<!-- Changes made for PR #30: Added two specific lines as requested -->

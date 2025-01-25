@@ -1,0 +1,12 @@
+.bash_history
+.bash_logout
+.bashrc
+.gitconfig
+.profile
+.sudo_as_admin_successful
+history.sqlite
+jupyter_cookie_secret
+kernel-*.json
+README
+.ipython
+.local

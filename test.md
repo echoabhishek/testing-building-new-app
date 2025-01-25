@@ -12,6 +12,10 @@ This document serves as a placeholder for testing purposes.
 1. This is a new line 1
 2. The sum of 2 + 3 = 5
 
+## Section 2a: Additional Lines
+
+this is the sum of 2+3 =???
+
 ## Section 3: Code Example
 
 ```python

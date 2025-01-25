@@ -8,9 +8,8 @@ This document serves as a placeholder for testing purposes.
 - This is even better
 
 ## Section 2: Mathematical Examples
-
-1. This is a new line 1
-2. The sum of 2 + 3 = 5
+1. this is a new line 1
+2. this is the sum of 2+3 =???
 3. Another example: 4 * 6 = 24
 
 ## Section 3: Code Example

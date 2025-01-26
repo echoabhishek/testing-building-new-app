@@ -1,6 +1,6 @@
+from flask import render_template, current_app
 from flask_mail import Message
-from app import mail, app
-from flask import render_template
+from app.extensions import mail
 
 def send_email(subject, sender, recipients, text_body, html_body):
     msg = Message(subject, sender=sender, recipients=recipients)
@@ -9,8 +9,9 @@ def send_email(subject, sender, recipients, text_body, html_body):
     mail.send(msg)
 
 def send_password_reset_email(user, token):
+    sender = current_app.config.get('ADMINS', ['noreply@example.com'])[0]
     send_email('[User Management System] Reset Your Password',
-               sender=app.config['ADMINS'][0],
+               sender=sender,
                recipients=[user.email],
                text_body=render_template('email/reset_password.txt',
                                          user=user, token=token),

@@ -1,11 +1,7 @@
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import UserMixin
+from app.extensions import db, login
 from werkzeug.security import generate_password_hash, check_password_hash
-from functools import wraps
-from flask_login import current_user
-from flask import abort
-
-db = SQLAlchemy()
+from flask_login import UserMixin
+from datetime import datetime
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -26,12 +22,6 @@ class PasswordReset(db.Model):
     token = db.Column(db.String(100), unique=True, nullable=False)
     expires_at = db.Column(db.DateTime, nullable=False)
 
-def role_required(role):
-    def decorator(f):
-        @wraps(f)
-        def decorated_function(*args, **kwargs):
-            if not current_user.is_authenticated or current_user.role != role:
-                abort(403)
-            return f(*args, **kwargs)
-        return decorated_function
-    return decorator
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))

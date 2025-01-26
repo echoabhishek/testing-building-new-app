@@ -10,3 +10,4 @@ itsdangerous==2.0.1
 Flask-OAuthlib==0.9.6
 pytest==6.2.5
 Flask-Dance==5.1.0
+email_validator==1.1.3

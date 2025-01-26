@@ -8,6 +8,7 @@ This document serves as a placeholder for testing purposes.
 - This is even better
 
 ## Section 2: Mathematical Examples
+1. this is a new line 1
 
 1. This is a new line 1
 2. The sum of 2 + 3 = 5

@@ -114,3 +114,8 @@ def test_admin_access_unauthorized(client):
     assert response.status_code == 403
     assert b"Unauthorized" in response.data
 
+
+def test_google_login(client):
+    response = client.get('/login/google')
+    assert response.status_code == 302  # Should redirect to Google's login page
+

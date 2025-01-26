@@ -72,3 +72,18 @@ This is a basic implementation and should be enhanced with additional security m
 - Adding rate limiting to prevent brute-force attacks
 - Implementing email verification for new user registrations
 
+
+## OAuth Integration
+
+This application supports Google OAuth for user authentication. To use this feature:
+
+1. Set up a Google OAuth 2.0 Client ID and Client Secret in the Google Developers Console.
+2. Update the 'consumer_key' and 'consumer_secret' in the src/app.py file with your Google Client ID and Client Secret.
+
+### Login with Google
+To initiate the Google OAuth login process, send a GET request to:
+```
+/login/google
+```
+This will redirect the user to Google's login page. After successful authentication, the user will be redirected back to your application.
+

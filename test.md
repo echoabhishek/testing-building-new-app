@@ -24,3 +24,6 @@ print(f"The sum of 2 + 3 = {result}")
 ```
 
 Note: This document is for demonstration purposes only.
+
+This is another new line 1
+This is the sum of 2+3 = 5

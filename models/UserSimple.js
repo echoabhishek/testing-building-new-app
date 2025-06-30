@@ -51,7 +51,10 @@ class User {
   // Save user to database
   async save() {
     if (this._id) {
-      // Update existing user
+      // Update existing user - hash password if it's been changed
+      if (this.password && !this.password.startsWith('$2a$')) {
+        this.password = await User.hashPassword(this.password);
+      }
       const updatedUser = simpleDB.updateUser(this._id, this);
       Object.assign(this, updatedUser);
       return this;

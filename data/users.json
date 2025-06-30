@@ -1,9 +1,10 @@
 [
   {
+    "_id": "1719767856696abcdef123",
     "email": "test@example.com",
-    "password": "$2a$12$yKYPX9Y1PFnsdjDl/hTnoegUcizxKg4dQGB7.q7J9TT8QRYrIITKu",
-    "firstName": "Test",
-    "lastName": "User",
+    "password": "$2a$12$zAkJS9mHouRSgmLdbyrNr.Xkl4FNz8j.z9MIiZcohbn6uJH0fp2Ya",
+    "firstName": "Updated",
+    "lastName": "TestUser",
     "isEmailVerified": false,
     "emailVerificationToken": "d1bef6474cfa163375b7d1cf18e9d9d921ea8fdf782bd95dc1203eebbe7d68d7",
     "resetPasswordToken": null,
@@ -19,56 +20,8 @@
     "paymentHistory": [],
     "role": "user",
     "isActive": true,
-    "lastLogin": null,
+    "lastLogin": "2025-06-30T18:01:07.957Z",
     "createdAt": "2025-06-30T17:57:36.696Z",
-    "updatedAt": "2025-06-30T17:57:36.696Z"
-  },
-  {
-    "email": "test@example.com",
-    "password": "$2a$12$yKYPX9Y1PFnsdjDl/hTnoegUcizxKg4dQGB7.q7J9TT8QRYrIITKu",
-    "firstName": "Test",
-    "lastName": "User",
-    "isEmailVerified": false,
-    "emailVerificationToken": "d1bef6474cfa163375b7d1cf18e9d9d921ea8fdf782bd95dc1203eebbe7d68d7",
-    "resetPasswordToken": null,
-    "resetPasswordExpires": null,
-    "stripeCustomerId": null,
-    "subscription": {
-      "status": "inactive",
-      "subscriptionId": null,
-      "planId": null,
-      "currentPeriodStart": null,
-      "currentPeriodEnd": null
-    },
-    "paymentHistory": [],
-    "role": "user",
-    "isActive": true,
-    "lastLogin": "2025-06-30T17:57:36.700Z",
-    "createdAt": "2025-06-30T17:57:36.700Z",
-    "updatedAt": "2025-06-30T17:57:36.700Z"
-  },
-  {
-    "email": "test@example.com",
-    "password": "$2a$12$yKYPX9Y1PFnsdjDl/hTnoegUcizxKg4dQGB7.q7J9TT8QRYrIITKu",
-    "firstName": "Test",
-    "lastName": "User",
-    "isEmailVerified": false,
-    "emailVerificationToken": "d1bef6474cfa163375b7d1cf18e9d9d921ea8fdf782bd95dc1203eebbe7d68d7",
-    "resetPasswordToken": null,
-    "resetPasswordExpires": null,
-    "stripeCustomerId": null,
-    "subscription": {
-      "status": "inactive",
-      "subscriptionId": null,
-      "planId": null,
-      "currentPeriodStart": null,
-      "currentPeriodEnd": null
-    },
-    "paymentHistory": [],
-    "role": "user",
-    "isActive": true,
-    "lastLogin": "2025-06-30T17:57:44.436Z",
-    "createdAt": "2025-06-30T17:57:44.436Z",
-    "updatedAt": "2025-06-30T17:57:44.436Z"
+    "updatedAt": "2025-06-30T18:01:07.957Z"
   }
 ]

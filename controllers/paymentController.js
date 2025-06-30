@@ -32,9 +32,8 @@ const createPaymentIntent = async (req, res) => {
       customerId = customer.id;
       
       // Update user with Stripe customer ID
-      await User.findByIdAndUpdate(user._id, {
-        stripeCustomerId: customerId
-      });
+      user.stripeCustomerId = customerId;
+      await user.save();
     }
 
     // Create payment intent
@@ -88,9 +87,8 @@ const confirmPayment = async (req, res) => {
         createdAt: new Date()
       };
 
-      await User.findByIdAndUpdate(user._id, {
-        $push: { paymentHistory: paymentRecord }
-      });
+      user.paymentHistory.push(paymentRecord);
+      await user.save();
 
       res.status(200).json({
         success: true,
@@ -129,19 +127,21 @@ const getPaymentHistory = async (req, res) => {
     const user = req.user;
     const { page = 1, limit = 10 } = req.query;
 
-    // Get user with payment history
-    const userWithPayments = await User.findById(user._id)
-      .select('paymentHistory')
-      .slice('paymentHistory', [(page - 1) * limit, limit]);
-
-    const totalPayments = user.paymentHistory.length;
+    // Get payment history from user object
+    const paymentHistory = user.paymentHistory || [];
+    const totalPayments = paymentHistory.length;
     const totalPages = Math.ceil(totalPayments / limit);
+    
+    // Paginate results
+    const startIndex = (page - 1) * limit;
+    const endIndex = startIndex + parseInt(limit);
+    const paginatedPayments = paymentHistory.slice(startIndex, endIndex);
 
     res.status(200).json({
       success: true,
       message: 'Payment history retrieved successfully',
       data: {
-        payments: userWithPayments.paymentHistory,
+        payments: paginatedPayments,
         pagination: {
           currentPage: parseInt(page),
           totalPages,
@@ -181,9 +181,8 @@ const createSubscription = async (req, res) => {
       customerId = customer.id;
       
       // Update user with Stripe customer ID
-      await User.findByIdAndUpdate(user._id, {
-        stripeCustomerId: customerId
-      });
+      user.stripeCustomerId = customerId;
+      await user.save();
     }
 
     // Create subscription
@@ -235,9 +234,8 @@ const cancelSubscription = async (req, res) => {
     });
 
     // Update user subscription status
-    await User.findByIdAndUpdate(user._id, {
-      'subscription.status': 'cancelled'
-    });
+    user.subscription.status = 'cancelled';
+    await user.save();
 
     res.status(200).json({
       success: true,
@@ -287,13 +285,15 @@ const handleWebhook = async (req, res) => {
         const userId = subscription.metadata.userId;
         
         if (userId) {
-          await User.findByIdAndUpdate(userId, {
-            'subscription.status': subscription.status,
-            'subscription.subscriptionId': subscription.id,
-            'subscription.planId': subscription.items.data[0].price.id,
-            'subscription.currentPeriodStart': new Date(subscription.current_period_start * 1000),
-            'subscription.currentPeriodEnd': new Date(subscription.current_period_end * 1000)
-          });
+          const user = User.findById(userId);
+          if (user) {
+            user.subscription.status = subscription.status;
+            user.subscription.subscriptionId = subscription.id;
+            user.subscription.planId = subscription.items.data[0].price.id;
+            user.subscription.currentPeriodStart = new Date(subscription.current_period_start * 1000);
+            user.subscription.currentPeriodEnd = new Date(subscription.current_period_end * 1000);
+            await user.save();
+          }
         }
         break;
 
@@ -302,13 +302,15 @@ const handleWebhook = async (req, res) => {
         const userIdDeleted = deletedSubscription.metadata.userId;
         
         if (userIdDeleted) {
-          await User.findByIdAndUpdate(userIdDeleted, {
-            'subscription.status': 'cancelled',
-            'subscription.subscriptionId': null,
-            'subscription.planId': null,
-            'subscription.currentPeriodStart': null,
-            'subscription.currentPeriodEnd': null
-          });
+          const user = User.findById(userIdDeleted);
+          if (user) {
+            user.subscription.status = 'cancelled';
+            user.subscription.subscriptionId = null;
+            user.subscription.planId = null;
+            user.subscription.currentPeriodStart = null;
+            user.subscription.currentPeriodEnd = null;
+            await user.save();
+          }
         }
         break;
 
@@ -317,9 +319,11 @@ const handleWebhook = async (req, res) => {
         const userIdFailed = failedInvoice.subscription_details?.metadata?.userId;
         
         if (userIdFailed) {
-          await User.findByIdAndUpdate(userIdFailed, {
-            'subscription.status': 'past_due'
-          });
+          const user = User.findById(userIdFailed);
+          if (user) {
+            user.subscription.status = 'past_due';
+            await user.save();
+          }
         }
         break;
 

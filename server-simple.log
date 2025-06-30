@@ -1,0 +1,9 @@
+Server is running on port 3000
+Environment: development
+Using simple file-based database for demonstration
+Create payment intent error: TypeError: Cannot read properties of undefined (reading 'toString')
+    at createPaymentIntent (/home/user/workspace/controllers/paymentController.js:28:28)
+    at Layer.handle [as handle_request] (/home/user/workspace/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/user/workspace/node_modules/express/lib/router/route.js:149:13)
+    at middleware (/home/user/workspace/node_modules/express-validator/lib/middlewares/check.js:16:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
